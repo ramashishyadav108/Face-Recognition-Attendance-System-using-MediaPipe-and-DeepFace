@@ -1,0 +1,197 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.summary-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+}
+
+.summary-header {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.summary-header::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--heading-gradient);
+}
+
+.summary-content {
+    margin-bottom: 2rem;
+}
+
+.summary-message {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+.summary-table th, .summary-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.summary-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.summary-table tr:hover {
+    background-color: rgba(91, 84, 250, 0.05);
+}
+
+.student-record {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--light-gray);
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.student-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    border: 3px solid var(--primary);
+}
+
+.student-info {
+    flex: 1;
+    text-align: left;
+}
+
+.student-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.student-details {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.btn-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1.1rem 2.5rem;
+}
+
+.btn-secondary {
+    background: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(108, 117, 125, 0.3);
+}
+
+.enrollment-messages {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(254, 252, 232, 0.7);
+    border-left: 4px solid var(--warning);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.enrollment-messages h3 {
+    color: var(--warning-darker);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.enrollment-messages ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.enrollment-messages li {
+    padding: 0.5rem 0;
+    color: var(--warning-darker);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.enrollment-messages li::before {
+    content: '\f071';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--warning);
+}
+
+@media (max-width: 768px) {
+    .summary-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .summary-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .btn-container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .student-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .student-name {
+        font-size: 1.2rem;
+    }
+
+    .summary-table th, .summary-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}

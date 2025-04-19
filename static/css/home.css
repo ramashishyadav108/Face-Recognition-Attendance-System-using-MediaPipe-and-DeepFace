@@ -1,0 +1,92 @@
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.option-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.option-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(91, 84, 250, 0.15);
+}
+
+.option-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    color: white;
+    font-size: 2.5rem;
+    box-shadow: 0 10px 25px rgba(91, 84, 250, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.option-icon::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(8px);
+}
+
+.option-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+}
+
+.option-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.option-description {
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+
+    .option-icon {
+        width: 85px;
+        height: 85px;
+        font-size: 2.2rem;
+    }
+
+    .option-title {
+        font-size: 1.6rem;
+    }
+}

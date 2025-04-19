@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Registration Options | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register_options.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Registration Options</h1>
+        <p>Choose your preferred method to register with our face recognition system</p>
+    </div>
+
+    <div class="registration-options-container">
+        <div class="registration-card">
+            <div class="options-container">
+                <a href="/register_upload" class="option-btn">
+                    <i class="fas fa-cloud-upload-alt icon"></i>
+                    Upload Photo
+                </a>
+                <a href="/register_camera" class="option-btn">
+                    <i class="fas fa-camera-retro icon"></i>
+                    Take Photo
+                </a>
+            </div>
+
+            <a href="/" class="back-btn">
+                <i class="fas fa-arrow-left icon"></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

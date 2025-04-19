@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Attendance Records{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attendance.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Attendance Records</h1>
+        <p>View and filter attendance by subject and date with our comprehensive tracking system</p>
+    </div>
+
+    <form class="filter-form" method="POST" action="/attendance">
+        <div class="form-group">
+            <label for="class"><i class="fas fa-book-open"></i> Subject</label>
+            <select name="class" id="class">
+                <option value="">All Subjects</option>
+                {% for class in classes %}
+                    <option value="{{ class }}" {% if selected_class == class %}selected{% endif %}>{{ class }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date"><i class="fas fa-calendar-alt"></i> Date</label>
+            <input type="date" name="date" id="date" value="{{ selected_date }}">
+        </div>
+        <div class="form-group">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn">
+                Apply Filters <i class="fas fa-filter icon"></i>
+            </button>
+        </div>
+    </form>
+
+    <div class="table-container">
+        {% if attendance %}
+            <div class="attendance-count">
+                <i class="fas fa-chart-pie"></i>
+                Showing {{ attendance|length }} attendance record(s)
+                {% if selected_class %}for <strong>{{ selected_class }}</strong>{% endif %}
+                {% if selected_date %} on <strong>{{ selected_date }}</strong>{% endif %}
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-user-graduate"></i> Student</th>
+                        <th><i class="fas fa-book"></i> Subject</th>
+                        <th><i class="fas fa-clock"></i> Date & Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in attendance %}
+                        <tr>
+                            <td>
+                                <a href="/student_details/{{ record.student_id }}" class="student-link">
+                                    <i class="fas fa-user-circle"></i> {{ record.student_name }}
+                                </a>
+                            </td>
+                            <td>{{ record.class }}</td>
+                            <td>{{ record.timestamp }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="empty-state">
+                <div class="icon"><i class="fas fa-chart-line"></i></div>
+                <h3>No Attendance Records Found</h3>
+                <p>Try adjusting your filters or mark attendance for today to see data here</p>
+                <a href="/mark_attendance" class="btn">
+                    Mark Attendance <i class="fas fa-arrow-right icon"></i>
+                </a>
+            </div>
+        {% endif %}
+        <a href="/teacher_login" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+</div>
+{% endblock %}

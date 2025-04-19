@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Mark Attendance | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attendance_camera.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Mark Attendance</h1>
+        <p>Position yourself in front of the camera for automatic face recognition</p>
+    </div>
+
+    <div class="attendance-card">
+        <div class="recognition-status">
+            <i class="fas fa-circle-notch fa-spin"></i>
+            <p>Real-time recognition active. Face the camera and wait for confirmation.</p>
+        </div>
+        
+        <div class="video-container">
+            <iframe id="video" src="/video_feed"></iframe>
+        </div>
+        
+        <form action="/mark_attendance" method="post">
+            <button type="submit" class="btn">
+                <i class="fas fa-user-check icon"></i> Confirm Attendance
+            </button>
+        </form>
+        
+        <a href="/" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}

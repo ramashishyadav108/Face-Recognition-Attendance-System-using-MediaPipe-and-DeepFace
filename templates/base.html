@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Face Recognition Attendance System{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    {% block additional_styles %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <!-- 🔁 Image instead of icon -->
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img">
+                <span class="logo-text">IIITM</span>
+            </a>
+
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="/teacher_login?next=mark_attendance"><i class="fas fa-user-check"></i> Mark Attendance</a></li>
+                    <li><a href="/register_options"><i class="fas fa-user-plus"></i> Register</a></li>
+                    <li><a href="/teacher_login"><i class="fas fa-chart-line"></i> Records</a></li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/teacher_login?next=mark_attendance">Attendance</a>
+            <a href="/register_options">Register</a>
+            <a href="/teacher_login">Records</a>
+        </div>
+        <p>© 2025 Face Recognition Attendance System | Developed by Ram Ashish Yadav</p>
+    </footer>
+
+    <script src="/static/js/theme.js"></script>
+    {% block additional_scripts %}{% endblock %}
+</body>
+</html>

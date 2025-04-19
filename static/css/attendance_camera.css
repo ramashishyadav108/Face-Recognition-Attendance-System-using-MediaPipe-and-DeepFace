@@ -1,0 +1,114 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.header {
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+}
+
+.attendance-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.recognition-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 1.2rem;
+    background-color: rgba(91, 84, 250, 0.08);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary);
+}
+
+.recognition-status i {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.recognition-status p {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--dark);
+    margin-bottom: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.btn {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1.1rem 2.5rem;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.back-btn:hover {
+    color: var(--primary);
+    background-color: rgba(91, 84, 250, 0.1);
+}
+
+#attendance-status {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+#marked-students-list {
+    list-style: none;
+    padding: 0;
+}
+
+#marked-students-list li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .attendance-card {
+        padding: 2rem 1.5rem;
+    }
+}

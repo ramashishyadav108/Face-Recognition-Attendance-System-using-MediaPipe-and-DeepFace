@@ -1,0 +1,5 @@
+teacher:
+  password_hash: 
+firebase:
+  databaseURL: 
+  pathToServiceAccount: 

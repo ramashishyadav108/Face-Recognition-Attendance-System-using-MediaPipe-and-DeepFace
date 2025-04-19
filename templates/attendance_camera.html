@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Mark Attendance | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attendance_camera.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Mark Attendance for {{ session.selected_class }}</h1>
+        <p>Position yourself in front of the camera for automatic face recognition</p>
+    </div>
+
+    <div class="attendance-card">
+        <div class="recognition-status">
+            <i class="fas fa-circle-notch fa-spin"></i>
+            <p>Real-time recognition active. Face the camera and wait for confirmation.</p>
+        </div>
+        
+        <div class="video-container">
+            <iframe id="video" src="/video_feed"></iframe>
+        </div>
+        
+        <div id="attendance-status">
+            <p>Time remaining: <span id="time-remaining"></span></p>
+            <h3>Marked Students</h3>
+            <ul id="marked-students-list"></ul>
+        </div>
+        
+        <form id="finish-form" action="/finish_attendance" method="post">
+            <button type="submit" class="btn">
+                <i class="fas fa-check icon"></i> Finish Attendance
+            </button>
+        </form>
+        
+        <a href="/mark_attendance" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Class Selection
+        </a>
+    </div>
+</div>
+
+<script>
+    const startTime = {{ start_time }};
+    const duration = {{ duration }};
+    const endTime = startTime + duration;
+
+    function updateTimer() {
+        const now = Date.now() / 1000;
+        const remaining = endTime - now;
+        if (remaining <= 0) {
+            document.getElementById('time-remaining').innerText = "Time's up!";
+            document.getElementById('finish-form').submit();
+        } else {
+            const minutes = Math.floor(remaining / 60);
+            const seconds = Math.floor(remaining % 60);
+            document.getElementById('time-remaining').innerText = `${minutes}m ${seconds}s`;
+        }
+    }
+
+    function updateMarkedStudents() {
+        fetch('/sync_recognition_data')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('marked-students-list');
+                list.innerHTML = '';
+                data.marked_students.forEach(student => {
+                    const li = document.createElement('li');
+                    li.textContent = `${student} - Attendance Marked`;
+                    list.appendChild(li);
+                });
+            });
+    }
+
+    setInterval(updateTimer, 1000);
+    setInterval(updateMarkedStudents, 2000);
+</script>
+{% endblock %}

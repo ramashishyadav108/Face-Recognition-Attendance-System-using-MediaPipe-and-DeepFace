@@ -1,0 +1,137 @@
+.card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(91, 84, 250, 0.15);
+}
+
+.card-header {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.card-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+}
+
+.card-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.05rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(91, 84, 250, 0.1);
+    background-color: var(--card-bg);
+}
+
+select[multiple] {
+    height: auto;
+    min-height: 150px;
+}
+
+select[multiple] option {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--light-gray);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    text-align: center;
+    position: relative;
+    border-left: 5px solid var(--danger);
+    background-color: rgba(255, 71, 87, 0.1);
+    color: var(--danger);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    color: var(--primary);
+    transform: translateX(-5px);
+}
+
+.form-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 2rem 1.5rem;
+    }
+
+    .card-header h3 {
+        font-size: 1.5rem;
+    }
+}

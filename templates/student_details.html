@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Student Details | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/student_details.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Student Details</h1>
+        <p>Comprehensive attendance history and student information</p>
+    </div>
+    
+    <div class="student-card">
+        <div class="student-avatar">
+            {{ student.name|first|upper }}
+        </div>
+        <div class="student-info">
+            <div class="info-item">
+                <div class="info-label">Full Name</div>
+                <div class="info-value">{{ student.name }}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value">{{ student.email }}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">User Type</div>
+                <div class="info-value">{{ student.userType }}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Student ID</div>
+                <div class="info-value">{{ student_id }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="attendance-section">
+        <h2 class="section-title">
+            <i class="fas fa-calendar-alt"></i> Attendance History
+        </h2>
+        
+        {% if attendance_by_class %}
+            {% for class_name, records in attendance_by_class.items() %}
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-name">
+                            <i class="fas fa-book-open"></i> {{ class_name }}
+                        </div>
+                        <div class="attendance-count">{{ records|length }} classes attended</div>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in records %}
+                                <tr>
+                                    <td>{{ record.date.split(' ')[0] }}</td>
+                                    <td>{{ record.date.split(' ')[1] }}</td>
+                                    <td class="present">
+                                        <i class="fas fa-check-circle"></i> Present
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <i class="fas fa-chart-pie"></i>
+                <h3>No attendance records found</h3>
+                <p>This student hasn't been marked present in any classes yet</p>
+            </div>
+        {% endif %}
+    </div>
+    
+    <a href="/attendance" class="btn">
+        <i class="fas fa-arrow-left icon"></i> Back to Attendance
+    </a>
+</div>
+{% endblock %}

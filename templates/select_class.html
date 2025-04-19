@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Select Class | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/select_class.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Select Your Class</h1>
+        <p>Choose the class and duration for today's attendance session</p>
+    </div>
+
+    <div class="selection-card">
+        <div class="card-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        
+        <form action="/start_attendance" method="post">
+            <div class="form-group">
+                <label for="classes" class="form-label">Class Selection</label>
+                <select id="classes" name="classes" class="form-control" required>
+                    <option value="">Select a class</option>
+                    <option value="CS">Introduction to Computer Science</option>
+                    <option value="Robotics">Introduction to Robotics</option>
+                    <option value="Data">Data Structures</option>
+                    <option value="Algorithms">Algorithms</option>
+                    <option value="AI">Artificial Intelligence</option>
+                    <option value="ML">Machine Learning</option>
+                    <option value="DL">Deep Learning</option>
+                    <option value="CV">Computer Vision</option>
+                    <option value="NLP">Natural Language Processing</option>
+                    <option value="BD">Big Data</option>
+                    <option value="DS">Data Science</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="duration" class="form-label">Attendance Duration (minutes)</label>
+                <select id="duration" name="duration" class="form-control" required>
+                    <option value="">Select duration</option>
+                    <option value="5">5 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">
+                Start Attendance <i class="fas fa-arrow-right icon"></i>
+            </button>
+        </form>
+        
+        <a href="/mark_attendance" class="back-btn">
+            <i class="fas fa-arrow-left icon"></i> Back to Attendance
+        </a>
+    </div>
+</div>
+{% endblock %}

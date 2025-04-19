@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Face Recognition Attendance System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Face Recognition Attendance System</h1>
+        <p>Experience seamless attendance tracking with our state-of-the-art facial recognition technology</p>
+    </div>
+
+    <div class="options-container">
+        <div class="option-card">
+            <div class="option-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2 class="option-title">Register</h2>
+            <p class="option-description">Enroll yourself as a student or teacher with our secure face recognition system</p>
+            <a href="/register_options" class="btn">
+                Register Now <i class="fas fa-arrow-right icon"></i>
+            </a>
+        </div>
+    
+        <div class="option-card">
+            <div class="option-icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <h2 class="option-title">Mark Attendance</h2>
+            <p class="option-description">Capture your face to instantly mark your attendance in just seconds</p>
+            <a href="/teacher_login?next=mark_attendance" class="btn">
+                Mark Now <i class="fas fa-arrow-right icon"></i>
+            </a>
+        </div>
+    
+        <div class="option-card">
+            <div class="option-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h2 class="option-title">View Records</h2>
+            <p class="option-description">Track and analyze comprehensive attendance reports and history</p>
+            <a href="/teacher_login?next=records" class="btn">
+                View Records <i class="fas fa-arrow-right icon"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

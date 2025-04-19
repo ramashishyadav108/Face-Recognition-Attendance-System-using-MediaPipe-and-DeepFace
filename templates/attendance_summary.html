@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Attendance Summary{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attendance_summary.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="summary-card">
+        <div class="summary-header">
+            <h1>Attendance Summary</h1>
+            <p>Summary of attendance for {{ selected_class }}</p>
+        </div>
+
+        <div class="summary-content">
+            {% if enrollment_messages %}
+            <div class="enrollment-messages">
+                <h3>Enrollment Notices</h3>
+                <ul>
+                    {% for message in enrollment_messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            
+            {% if attendance_records %}
+                <div class="summary-message">
+                    <p>Showing {{ attendance_records|length }} attendance record(s)</p>
+                </div>
+
+                {% for record in attendance_records %}
+                    <div class="student-record">
+                        {% if record.image_path %}
+                            <img src="{{ url_for('static', filename=record.image_path) }}" alt="{{ record.student_name }}" class="student-image">
+                        {% else %}
+                            <div class="student-image" style="display: flex; align-items: center; justify-content: center; background-color: var(--primary-lighter);">
+                                <i class="fas fa-user" style="font-size: 2rem; color: var(--primary);"></i>
+                            </div>
+                        {% endif %}
+                        <div class="student-info">
+                            <h3 class="student-name">{{ record.student_name }}</h3>
+                            <p class="student-details">
+                                <strong>ID:</strong> {{ record.student_id }} | 
+                                <strong>Class:</strong> {{ record.class }} | 
+                                <strong>Date:</strong> {{ record.date }}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="summary-message">
+                    {% if not enrollment_messages %}
+                        <p>No students were marked present.</p>
+                    {% else %}
+                        <p>No eligible students were marked present for this class.</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="btn-container">
+            <a href="/mark_attendance" class="btn btn-primary">
+                Mark Another Class <i class="fas fa-redo icon"></i>
+            </a>
+            <a href="/" class="btn btn-secondary">
+                Back to Home <i class="fas fa-home icon"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

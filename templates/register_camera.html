@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Take Photo | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register_camera.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Register Your Face</h1>
+        <p>Position yourself in front of the camera and capture your photo for registration</p>
+    </div>
+
+    <div class="registration-card">
+        <div class="registration-status">
+            <i class="fas fa-camera"></i>
+            <p>Camera active. Face the camera and click 'Capture Photo' when ready.</p>
+        </div>
+        
+        <div class="video-container">
+            <iframe id="video" src="/video_feed" allow="camera" frameborder="0"></iframe>
+        </div>
+        
+        <form action="/register_camera" method="post">
+            <button type="submit" class="btn">
+                <i class="fas fa-camera-retro icon"></i> Capture Photo
+            </button>
+        </form>
+        
+        <a href="/register_options" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Registration Options
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,244 @@
+.student-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 3rem;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(91, 84, 250, 0.15);
+}
+
+.student-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(91, 84, 250, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.student-avatar::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(8px);
+}
+
+.student-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.info-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.attendance-section {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.attendance-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(91, 84, 250, 0.15);
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.class-card {
+    background: rgba(233, 236, 239, 0.5);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.class-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.class-name {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.attendance-count {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(91, 84, 250, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+th, td {
+    padding: 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+    color: var(--text-color);
+}
+
+th {
+    background-color: rgba(91, 84, 250, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+tr:hover {
+    background-color: rgba(91, 84, 250, 0.05);
+}
+
+.present {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .student-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .student-avatar {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+        margin: 0 auto;
+    }
+
+    .student-info {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .attendance-section {
+        padding: 2rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .class-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

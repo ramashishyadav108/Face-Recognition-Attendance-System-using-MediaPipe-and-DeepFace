@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Photo | Face Recognition System{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register_upload.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>Upload Your Photo</h1>
+        <p>For face recognition registration</p>
+    </div>
+
+    <div class="upload-container">
+        <div class="upload-card">
+            <div class="upload-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle alert-icon"></i>
+                        <div>{{ messages[0] }}</div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            <form action="/register_upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="file-input-container">
+                        <input type="file" name="file" class="file-input" id="fileInput" accept="image/*" required>
+                        <label for="fileInput" class="file-input-label">
+                            <i class="fas fa-camera file-input-icon"></i>
+                            <div class="file-input-text">
+                                <strong>Click to upload</strong> or drag and drop<br>
+                                JPG, PNG (Max 5MB)
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <i class="fas fa-upload icon"></i> Upload & Continue
+                </button>
+            </form>
+            
+            <a href="/register_options" class="back-btn">
+                <i class="fas fa-arrow-left icon"></i> Back to Registration Options
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

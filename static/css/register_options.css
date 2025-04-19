@@ -1,0 +1,103 @@
+.registration-options-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.registration-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    padding: 1.25rem 2rem;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    gap: 15px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(91, 84, 250, 0.2);
+}
+
+.option-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(20, 184, 166, 0.3);
+}
+
+.option-btn .icon {
+    font-size: 1.3rem;
+    transition: transform 0.3s;
+}
+
+.option-btn:hover .icon {
+    transform: translateX(5px);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.back-btn:hover {
+    color: var(--primary);
+    background-color: rgba(91, 84, 250, 0.1);
+}
+
+.back-btn .icon {
+    transition: transform 0.3s;
+}
+
+.back-btn:hover .icon {
+    transform: translateX(-3px);
+}
+
+@media (max-width: 768px) {
+    .registration-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .option-btn {
+        padding: 1.1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .option-btn {
+        flex-direction: column;
+        gap: 10px;
+        padding: 1.2rem 1rem;
+    }
+}
