@@ -4,8 +4,14 @@
 
 ![Dashboard Preview](assets/home.png)
 ![Dashboard Preview](assets/registration.png)
+![Dashboard Preview](assets/registration_details.png)
+![Dashboard Preview](assets/registration_confirm.png)
+![Dashboard Preview](assets/class_selection.png)
 ![Dashboard Preview](assets/marking_attendance.png)
-![Dashboard Preview](assets/attendance_marked.png)
+![Dashboard Preview](assets/marked_attendance_details.png)
+![Dashboard Preview](assets/attendance_records.png)
+![Dashboard Preview](assets/student_attendance_details.png)
+
 
 ## ✨ Features
 
@@ -96,4 +102,4 @@ Project Link: https://github.com/ramashishyadav108/Face-Recognition-Attendance-S
 
 ### Sample Output
 
-![Dashboard Preview](assets/records.png)
+![Dashboard Preview](assets/marked_attendance_details.png)
