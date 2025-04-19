@@ -48,7 +48,8 @@
    ```bash
    pip install -r requirements.txt
    ```
-
+   - if dlib installation shows error then install dlib from conda.
+ 
 3. **Prepare Configs:**
    - Setup the Firebase
 
